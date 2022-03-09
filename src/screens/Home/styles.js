@@ -16,5 +16,17 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         padding: Platform.OS === 'ios' ? 15 : 10,
         marginHorizontal: 20
+    },
+    button: {
+        backgroundColor: 'green',
+        padding: 15,
+        margin: 20,
+        borderRadius: 7,
+        alignItems: 'center'
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold'
     }
 })
