@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { SafeAreaView, Text, TextInput } from 'react-native';
 
 import { styles } from './styles';
 
@@ -7,8 +7,13 @@ export function Home() {
   return (
     <SafeAreaView style={styles.container} >
       <Text style={styles.text}>
-        Tela HOME Blz!!
+        Ola, Leonardo!
       </Text>
+      <TextInput 
+        style={styles.input}
+        placeholder="Digite a tarefa"
+        placeholderTextColor="#555"
+      />
     </SafeAreaView>
   );
 }
