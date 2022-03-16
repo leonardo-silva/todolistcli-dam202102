@@ -8,6 +8,7 @@ import {
   FlatList 
 } from 'react-native';
 
+import { Button } from '../../components/Button';
 import { styles } from './styles';
 
 export function Home() {
@@ -29,16 +30,13 @@ export function Home() {
         placeholderTextColor="#555"
         onChangeText={setNewTask}
       />
-      <TouchableOpacity 
-        style={styles.button}
-        activeOpacity={0.7}
-        onPress={handleAddNewTask}
-      >
-        <Text style={styles.buttonText}>
-          Adicionar
-        </Text>
 
-      </TouchableOpacity>
+      <Button 
+        onPress={handleAddNewTask}
+        activeOpacity={0.7}
+        title="Adicionar tarefa"
+      />
+
       <Text style={ [styles.text, { marginTop: 20}] }>
         Minhas Tarefas
       </Text>
