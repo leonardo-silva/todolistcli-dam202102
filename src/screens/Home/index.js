@@ -3,7 +3,9 @@ import {
   SafeAreaView, 
   Text, 
   TextInput, 
-  TouchableOpacity 
+  TouchableOpacity,
+  ScrollView,
+  FlatList 
 } from 'react-native';
 
 import { styles } from './styles';
@@ -41,15 +43,20 @@ export function Home() {
         Minhas Tarefas
       </Text>
 
-      {
-        tasks.map(task => (
-          <TouchableOpacity style={styles.buttonTask}>
+      <FlatList
+        data={tasks}
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
+          <TouchableOpacity 
+            style={styles.buttonTask}
+          >
             <Text style={styles.textTask}>
-              {task}
+              {item}
             </Text>
           </TouchableOpacity>
-        ))
-      }
+        )
+        }
+      />
     </SafeAreaView>
   );
 }
