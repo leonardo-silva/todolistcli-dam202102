@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react-native",
+        "moduleResolution": "Node",
+        "noEmit": true,
+        "strict": true,
+        "target": "esnext"
+    }
+}

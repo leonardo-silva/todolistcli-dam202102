@@ -11,12 +11,28 @@ import {
 import { Button } from '../../components/Button';
 import { styles } from './styles';
 
+interface TaskData {
+  id: string;
+  name: string;
+}
+
 export function Home() {
   const [newTask, setNewTask] = useState("");
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<TaskData[]>([]);
 
   function handleAddNewTask() {
-    setTasks(oldState => [...oldState, newTask]);
+    const data: TaskData = {
+      id: String((new Date).getTime()),
+      name: newTask
+    };
+
+    setTasks(oldState => [...oldState, data]);
+  }
+
+  function handleRemoveTask(id: string) {
+    setTasks(oldState => oldState.filter(
+      task => task.id != id
+    ));
   }
 
   return (
@@ -43,13 +59,14 @@ export function Home() {
 
       <FlatList
         data={tasks}
-        keyExtractor={item => item}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity 
             style={styles.buttonTask}
+            onPress={() => handleRemoveTask(item.id)}
           >
             <Text style={styles.textTask}>
-              {item}
+              {item.name}
             </Text>
           </TouchableOpacity>
         )
